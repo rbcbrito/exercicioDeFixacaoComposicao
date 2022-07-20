@@ -41,7 +41,18 @@ public class ItensDoPedido {
 	}
 
 	public Double subTotal() {
-		return this.quantidade * this.preco;
+		return quantidade * preco;
+	}
+	
+	@Override
+	public String toString() {
+		return getProduto().getNome() 
+				+ ", $" 
+				+ String.format("%.2f", preco) 
+				+ ", Quantidade: " 
+				+ quantidade 
+				+ ", Subtotal: $"
+				+ String.format("%.2f", subTotal());
 	}
 
 }

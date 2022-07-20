@@ -1,20 +1,23 @@
 package entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
 	
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
 	private String nome;
 	private String email;
-	private Date aniversario;
+	private Date dataNascimento;
 	
 	public Cliente() {
 	}
 
-	public Cliente(String nome, String email, Date aniversario) {
+	public Cliente(String nome, String email, Date dataNascimento) {
 		this.nome = nome;
 		this.email = email;
-		this.aniversario = aniversario;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getNome() {
@@ -34,11 +37,18 @@ public class Cliente {
 	}
 
 	public Date getAniversario() {
-		return aniversario;
+		return dataNascimento;
 	}
 
 	public void setAniversario(Date aniversario) {
-		this.aniversario = aniversario;
+		this.dataNascimento = aniversario;
+	}
+	
+	@Override
+	public String toString() {
+		return getNome() + " (" 
+				+ sdf.format(dataNascimento) + ") - " 
+				+ getEmail();
 	}
 	
 }
